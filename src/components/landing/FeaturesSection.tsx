@@ -7,37 +7,37 @@ const features = [
   {
     icon: Brain,
     title: 'AI-Powered Screening',
-    description: 'Get personalized PCOS risk assessment using advanced AI that analyzes your symptoms and health patterns.',
+    description: 'Get personalized PCOS risk assessment using clinically validated AI that analyzes your symptoms and health patterns.',
     color: 'primary',
   },
   {
     icon: Heart,
-    title: 'Emotional Journal',
-    description: 'Track your mood, stress levels, and emotional well-being. AI provides insights to help you understand patterns.',
+    title: 'Emotional Wellness',
+    description: 'Track your mood, stress levels, and emotional well-being. AI provides insights to help you understand patterns and triggers.',
     color: 'accent',
   },
   {
     icon: Calendar,
-    title: 'Cycle Tracking',
-    description: 'Monitor your menstrual cycle with intelligent predictions and personalized health recommendations.',
+    title: 'Cycle Intelligence',
+    description: 'Monitor your menstrual cycle with intelligent predictions, symptom tracking, and personalized health recommendations.',
     color: 'secondary',
   },
   {
     icon: Stethoscope,
-    title: 'Connect with Doctors',
-    description: 'Find verified specialists who understand PCOS. Book consultations with empathetic healthcare providers.',
+    title: 'Expert Connections',
+    description: 'Find verified PCOS specialists and gynecologists. Book consultations with empathetic, experienced healthcare providers.',
     color: 'primary',
   },
   {
     icon: Shield,
-    title: '100% Private',
-    description: 'Your health data stays yours. End-to-end encryption ensures complete privacy and security.',
+    title: 'Medical-Grade Privacy',
+    description: 'Your health data stays protected with end-to-end encryption and HIPAA-compliant security standards.',
     color: 'accent',
   },
   {
     icon: Sparkles,
     title: 'Personalized Insights',
-    description: 'Receive tailored recommendations based on your unique health profile and wellness goals.',
+    description: 'Receive tailored recommendations based on your unique health profile, symptoms, and wellness goals.',
     color: 'secondary',
   },
 ];
@@ -60,15 +60,15 @@ export const FeaturesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium text-sm tracking-wide uppercase mb-4 block">
-            Features
+          <span className="text-primary font-semibold text-sm tracking-wide uppercase mb-4 block">
+            Comprehensive Care
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Everything You Need for{' '}
             <span className="gradient-text">Better Health</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Comprehensive tools designed with empathy for Indian women's unique health needs.
+            Evidence-based tools designed with empathy for women's unique health needs.
           </p>
         </motion.div>
 

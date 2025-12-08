@@ -2,21 +2,14 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Shield, Clock } from 'lucide-react';
 
 export const CTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref}>
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-card/50" />
-
-      {/* Floating elements */}
-      <div className="absolute top-1/4 left-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float" />
-      <div className="absolute bottom-1/4 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-2xl animate-float-delayed" />
-
+    <section className="py-24 relative overflow-hidden bg-muted/30" ref={ref}>
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -24,15 +17,21 @@ export const CTASection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center glass-card p-12 md:p-16"
         >
-          {/* Badge */}
+          {/* Trust badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6"
+            className="flex flex-wrap justify-center gap-6 mb-8"
           >
-            <Sparkles size={16} className="text-primary" />
-            <span className="text-sm font-medium text-primary">Start Your Journey Today</span>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+              <Shield size={16} className="text-primary" />
+              <span>Free Assessment</span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+              <Clock size={16} className="text-primary" />
+              <span>Takes 3 Minutes</span>
+            </div>
           </motion.div>
 
           <motion.h2
@@ -51,8 +50,8 @@ export const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto"
           >
-            Join thousands of women who have found clarity, support, and better health with DAY28. 
-            Your free screening is just a click away.
+            Join thousands of women who have found clarity, support, and better health outcomes with DAY28. 
+            Start your free assessment today.
           </motion.p>
 
           <motion.div
@@ -67,17 +66,17 @@ export const CTASection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary group flex items-center gap-2"
               >
-                <span className="relative z-10">Get Free Screening</span>
+                <span className="relative z-10">Get Free Assessment</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
-            <Link to="/dashboard">
+            <Link to="/doctors">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-secondary"
               >
-                Explore Features
+                Find a Specialist
               </motion.button>
             </Link>
           </motion.div>
