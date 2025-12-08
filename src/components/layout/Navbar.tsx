@@ -7,9 +7,9 @@ import logo from '@/assets/day28-logo.png';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Dashboard', path: '/dashboard' },
-  { name: 'AI Screener', path: '/screener' },
+  { name: 'Assessment', path: '/screener' },
   { name: 'Journal', path: '/journal' },
-  { name: 'Doctors', path: '/doctors' },
+  { name: 'Specialists', path: '/doctors' },
 ];
 
 export const Navbar = () => {
@@ -30,9 +30,9 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border/30 shadow-lg'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -41,15 +41,15 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="group relative">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative"
+              whileHover={{ scale: 1.03 }}
+              className="relative flex items-center gap-3"
             >
-              <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <img
                 src={logo}
                 alt="DAY28"
-                className="h-12 w-auto relative z-10"
+                className="h-10 w-auto"
               />
+              <span className="font-bold text-xl text-foreground hidden sm:block">DAY28</span>
             </motion.div>
           </Link>
 
@@ -73,29 +73,29 @@ export const Navbar = () => {
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-primary rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
                   />
                 )}
               </Link>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
             <Link to="/login">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-secondary px-6 py-2.5 text-sm"
+                className="px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Login
+                Sign In
               </motion.button>
             </Link>
             <Link to="/onboarding">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-primary px-6 py-2.5 text-sm"
+                className="btn-primary px-5 py-2.5 text-sm"
               >
                 <span className="relative z-10">Get Started</span>
               </motion.button>
@@ -120,7 +120,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/30"
+            className="md:hidden bg-background border-b border-border"
           >
             <div className="container mx-auto px-6 py-6 space-y-4">
               {navLinks.map((link, index) => (
@@ -143,9 +143,9 @@ export const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <div className="flex flex-col gap-3 pt-4">
+              <div className="flex flex-col gap-3 pt-4 border-t border-border">
                 <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                  <button className="btn-secondary w-full py-3">Login</button>
+                  <button className="btn-secondary w-full py-3">Sign In</button>
                 </Link>
                 <Link to="/onboarding" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="btn-primary w-full py-3">

@@ -1,25 +1,25 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Heart, Instagram, Twitter, Linkedin, Mail, Shield } from 'lucide-react';
 import logo from '@/assets/day28-logo.png';
 
 const footerLinks = {
   product: [
-    { name: 'AI Screener', path: '/screener' },
+    { name: 'PCOS Assessment', path: '/screener' },
     { name: 'Emotional Journal', path: '/journal' },
-    { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Find Doctors', path: '/doctors' },
+    { name: 'Health Dashboard', path: '/dashboard' },
+    { name: 'Find Specialists', path: '/doctors' },
   ],
   company: [
     { name: 'About Us', path: '/about' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Careers', path: '/careers' },
+    { name: 'Clinical Advisory', path: '/advisory' },
+    { name: 'Research', path: '/research' },
     { name: 'Contact', path: '/contact' },
   ],
   legal: [
     { name: 'Privacy Policy', path: '/privacy' },
     { name: 'Terms of Service', path: '/terms' },
-    { name: 'Cookie Policy', path: '/cookies' },
+    { name: 'Medical Disclaimer', path: '/disclaimer' },
   ],
 };
 
@@ -32,32 +32,38 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="relative border-t border-border/30 bg-background">
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
-
+    <footer className="relative border-t border-border bg-muted/30">
       <div className="container mx-auto px-6 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link to="/" className="inline-flex items-center gap-3 mb-6">
               <img
                 src={logo}
                 alt="DAY28"
-                className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                className="h-8 w-auto"
               />
+              <span className="font-bold text-lg text-foreground">DAY28</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
-              Empowering Indian women with AI-powered PCOS insights and emotional wellness support. Your health journey, simplified.
+              Empowering women with AI-powered PCOS insights and emotional wellness support. 
+              Evidence-based care, designed with empathy.
             </p>
-            <div className="flex gap-4">
+            
+            {/* Trust Badge */}
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+              <Shield size={16} className="text-primary" />
+              <span>HIPAA Compliant • Data Protected</span>
+            </div>
+
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 rounded-full bg-card/60 border border-border/30 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                  className="p-2.5 rounded-xl bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -119,12 +125,12 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} DAY28. All rights reserved.
+            © {new Date().getFullYear()} DAY28 Health. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart size={14} className="text-primary fill-primary" /> for women's health
+            Made with <Heart size={14} className="text-accent fill-accent" /> for women's health in India
           </p>
         </div>
       </div>
