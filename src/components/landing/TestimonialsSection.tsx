@@ -1,35 +1,38 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, Star, MapPin } from 'lucide-react';
 import snehaImg from '@/assets/testimonial-sneha.jpg';
 import riyaImg from '@/assets/testimonial-riya.jpg';
 import aishaImg from '@/assets/testimonial-aisha.jpg';
 
 const testimonials = [
   {
-    name: 'Sneha',
+    name: 'Sneha Sharma',
     age: 19,
     location: 'Delhi University Student',
+    city: 'New Delhi',
     image: snehaImg,
     rating: 5,
-    quote: 'DAY28 helped me understand my symptoms when I was too confused and embarrassed to ask anyone. The AI screening gave me clarity and confidence to talk to my doctor about PCOS.',
+    quote: 'DAY28 ने मुझे PCOS को समझने में मदद की जब मैं बहुत confused थी। AI screening ने मुझे doctor से बात करने का confidence दिया।',
   },
   {
-    name: 'Riya',
+    name: 'Riya Patel',
     age: 21,
-    location: 'Software Engineer, Mumbai',
+    location: 'Software Engineer',
+    city: 'Mumbai',
     image: riyaImg,
     rating: 5,
-    quote: 'The emotional wellness journal changed my stress management completely. I finally see the patterns between my work stress and my cycle. This app is a game changer for women\'s health!',
+    quote: 'The emotional wellness journal changed my stress management completely. I finally see patterns between work stress and my cycle. This app is a game changer!',
   },
   {
-    name: 'Aisha',
+    name: 'Aisha Khan',
     age: 24,
-    location: 'Marketing Professional, Bangalore',
+    location: 'Marketing Professional',
+    city: 'Bangalore',
     image: aishaImg,
     rating: 5,
-    quote: 'Finally found clarity about PCOS after years of confusion. The personalized insights and doctor recommendations made my health journey so much easier and less intimidating.',
+    quote: 'Finally found clarity about PCOS after years of confusion. The personalized insights and doctor recommendations made my health journey less intimidating.',
   },
 ];
 
@@ -51,7 +54,7 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-24 relative overflow-hidden" ref={ref}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/3 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -62,13 +65,15 @@ export const TestimonialsSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm tracking-wide uppercase mb-4 block">
-            Success Stories
+            Real Stories from Real Women
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Trusted by <span className="gradient-text">Thousands</span>
+            Trusted by{' '}
+            <span className="gradient-text-secondary">50,000+ Women</span>{' '}
+            Across India
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real stories from women who found clarity, support, and better health with DAY28.
+            From college students to working professionals — hear how DAY28 helped them take control of their health.
           </p>
         </motion.div>
 
@@ -81,7 +86,7 @@ export const TestimonialsSection = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
                 className="glass-card p-8 md:p-12"
               >
                 <Quote size={40} className="text-primary/20 mb-6" />
@@ -89,7 +94,7 @@ export const TestimonialsSection = () => {
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={18} className="text-yellow-500 fill-yellow-500" />
+                    <Star key={i} size={18} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
 
@@ -111,6 +116,10 @@ export const TestimonialsSection = () => {
                       {testimonials[currentIndex].name}, {testimonials[currentIndex].age}
                     </h4>
                     <p className="text-sm text-muted-foreground">{testimonials[currentIndex].location}</p>
+                    <div className="flex items-center gap-1 text-xs text-secondary mt-1">
+                      <MapPin size={12} />
+                      <span>{testimonials[currentIndex].city}</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -152,6 +161,20 @@ export const TestimonialsSection = () => {
             </div>
           </div>
         </div>
+
+        {/* City indicators */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-4 mt-12"
+        >
+          {['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Hyderabad', 'Pune', 'Kolkata', '18+ More'].map((city) => (
+            <span key={city} className="px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium">
+              {city}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

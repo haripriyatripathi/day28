@@ -38,7 +38,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo Only - No Text */}
+          {/* Logo */}
           <Link to="/" className="group relative">
             <motion.div
               whileHover={{ scale: 1.03 }}
@@ -48,11 +48,10 @@ export const Navbar = () => {
               <img
                 src={logo}
                 alt="DAY28 - Women's Health Platform"
-                className="h-12 w-auto"
-                style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1500%) hue-rotate(310deg) brightness(95%) contrast(95%)' }}
+                className="h-14 w-auto rounded-xl"
               />
               {/* Soft glow on hover */}
-              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
             </motion.div>
           </Link>
 
