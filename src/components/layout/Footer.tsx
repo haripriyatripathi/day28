@@ -35,16 +35,15 @@ export const Footer = () => {
     <footer className="relative border-t border-border bg-muted/30">
       <div className="container mx-auto px-6 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand */}
+          {/* Brand - Logo Only */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-3 mb-6">
+            <Link to="/" className="inline-block mb-6">
               <img
                 src={logo}
-                alt="DAY28"
-                className="h-8 w-auto"
+                alt="DAY28 - Women's Health Platform"
+                className="h-10 w-auto"
                 style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1500%) hue-rotate(310deg) brightness(95%) contrast(95%)' }}
               />
-              <span className="font-bold text-lg text-foreground">DAY28</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
               Empowering women with AI-powered PCOS insights and emotional wellness support. 
@@ -64,7 +63,8 @@ export const Footer = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 rounded-xl bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="p-2.5 rounded-xl bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors duration-300"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -81,7 +81,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -98,7 +98,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -115,7 +115,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -131,7 +131,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} DAY28 Health. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart size={14} className="text-accent fill-accent" /> for women's health in India
+            Made with <Heart size={14} className="text-primary fill-primary" /> for women's health in India
           </p>
         </div>
       </div>

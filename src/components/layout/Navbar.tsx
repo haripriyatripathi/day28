@@ -29,8 +29,8 @@ export const Navbar = () => {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         isScrolled
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm'
           : 'bg-transparent'
@@ -38,19 +38,21 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo Only - No Text */}
           <Link to="/" className="group relative">
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="relative flex items-center gap-3"
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative flex items-center"
             >
               <img
                 src={logo}
-                alt="DAY28"
-                className="h-10 w-auto"
+                alt="DAY28 - Women's Health Platform"
+                className="h-12 w-auto"
                 style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1500%) hue-rotate(310deg) brightness(95%) contrast(95%)' }}
               />
-              <span className="font-bold text-xl text-foreground hidden sm:block">DAY28</span>
+              {/* Soft glow on hover */}
+              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
             </motion.div>
           </Link>
 
@@ -75,6 +77,7 @@ export const Navbar = () => {
                   <motion.div
                     layoutId="activeNav"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
                   />
                 )}
               </Link>
@@ -85,17 +88,19 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <Link to="/login">
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
               >
                 Sign In
               </motion.button>
             </Link>
             <Link to="/onboarding">
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="btn-primary px-5 py-2.5 text-sm"
               >
                 <span className="relative z-10">Get Started</span>
@@ -121,6 +126,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden bg-background border-b border-border"
           >
             <div className="container mx-auto px-6 py-6 space-y-4">
@@ -129,7 +135,7 @@ export const Navbar = () => {
                   key={link.path}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08, duration: 0.4, ease: 'easeOut' }}
                 >
                   <Link
                     to={link.path}
