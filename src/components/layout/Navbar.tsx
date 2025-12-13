@@ -48,6 +48,7 @@ export const Navbar = () => {
                 src={logo}
                 alt="DAY28"
                 className="h-10 w-auto"
+                style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1500%) hue-rotate(310deg) brightness(95%) contrast(95%)' }}
               />
               <span className="font-bold text-xl text-foreground hidden sm:block">DAY28</span>
             </motion.div>
