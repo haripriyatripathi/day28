@@ -41,19 +41,18 @@ export const Footer = () => {
               <img
                 src={logo}
                 alt="DAY28 - Women's Health Platform"
-                className="h-10 w-auto"
-                style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1500%) hue-rotate(310deg) brightness(95%) contrast(95%)' }}
+                className="h-12 w-auto rounded-xl"
               />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
-              Empowering women with AI-powered PCOS insights and emotional wellness support. 
-              Evidence-based care, designed with empathy.
+              भारत की पहली AI-powered PCOS और emotional wellness platform। 
+              Evidence-based care, designed with empathy for Indian women.
             </p>
             
             {/* Trust Badge */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-              <Shield size={16} className="text-primary" />
-              <span>HIPAA Compliant • Data Protected</span>
+              <Shield size={16} className="text-secondary" />
+              <span>100% Private • Data Protected • Made in India</span>
             </div>
 
             <div className="flex gap-3">

@@ -1,44 +1,50 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Brain, Heart, Calendar, Stethoscope, Shield, Sparkles } from 'lucide-react';
+import { Brain, Heart, Calendar, Stethoscope, Shield, Sparkles, Clock, MessageCircle } from 'lucide-react';
 
 const features = [
   {
     icon: Brain,
-    title: 'AI-Powered Screening',
-    description: 'Get personalized PCOS risk assessment using clinically validated AI that analyzes your symptoms and health patterns.',
+    title: 'AI-Powered PCOS Screening',
+    description: 'Get accurate risk assessment in just 3 minutes. Our AI is trained on data from 10,000+ Indian women.',
     color: 'primary',
+    badge: 'Most Popular',
   },
   {
     icon: Heart,
-    title: 'Emotional Wellness',
-    description: 'Track your mood, stress levels, and emotional well-being. AI provides insights to help you understand patterns and triggers.',
-    color: 'accent',
+    title: 'Emotional Wellness Tracker',
+    description: 'Daily mood journaling with AI insights. Understand how your emotions connect to your cycle.',
+    color: 'secondary',
+    badge: null,
   },
   {
     icon: Calendar,
-    title: 'Cycle Intelligence',
-    description: 'Monitor your menstrual cycle with intelligent predictions, symptom tracking, and personalized health recommendations.',
-    color: 'secondary',
+    title: 'Smart Cycle Tracking',
+    description: 'Predict your periods accurately, even with irregular cycles. Get reminders for doctor visits.',
+    color: 'primary',
+    badge: null,
   },
   {
     icon: Stethoscope,
-    title: 'Expert Connections',
-    description: 'Find verified PCOS specialists and gynecologists. Book consultations with empathetic, experienced healthcare providers.',
+    title: 'Connect with Specialists',
+    description: 'Find FOGSI-certified gynecologists and endocrinologists in your city. Book online or in-person.',
+    color: 'secondary',
+    badge: '500+ Doctors',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Hindi & Regional Support',
+    description: 'Use the app in Hindi or English. Our support team speaks your language.',
     color: 'primary',
+    badge: null,
   },
   {
     icon: Shield,
-    title: 'Medical-Grade Privacy',
-    description: 'Your health data stays protected with end-to-end encryption and HIPAA-compliant security standards.',
-    color: 'accent',
-  },
-  {
-    icon: Sparkles,
-    title: 'Personalized Insights',
-    description: 'Receive tailored recommendations based on your unique health profile, symptoms, and wellness goals.',
+    title: '100% Private & Secure',
+    description: 'Your health data stays on your device. We never share or sell your information.',
     color: 'secondary',
+    badge: 'Encrypted',
   },
 ];
 
@@ -61,45 +67,46 @@ export const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm tracking-wide uppercase mb-4 block">
-            Comprehensive Care
+            Complete Care Platform
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Everything You Need for{' '}
-            <span className="gradient-text">Better Health</span>
+            <span className="gradient-text-secondary">Better Health</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Evidence-based tools designed with empathy for women's unique health needs.
+            Clinically validated tools designed with empathy for Indian women's unique health needs.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card-hover p-8 group"
+              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+              className="glass-card-hover p-8 group relative"
             >
+              {/* Badge */}
+              {feature.badge && (
+                <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
+                  feature.color === 'primary' 
+                    ? 'bg-primary/10 text-primary' 
+                    : 'bg-secondary/10 text-secondary'
+                }`}>
+                  {feature.badge}
+                </div>
+              )}
+
               <div
-                className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6 transition-transform group-hover:scale-110 ${
-                  feature.color === 'primary'
-                    ? 'bg-primary/10'
-                    : feature.color === 'accent'
-                    ? 'bg-accent/10'
-                    : 'bg-secondary/10'
+                className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6 transition-all duration-300 group-hover:scale-110 ${
+                  feature.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
                 }`}
               >
                 <feature.icon
-                  size={24}
-                  className={
-                    feature.color === 'primary'
-                      ? 'text-primary'
-                      : feature.color === 'accent'
-                      ? 'text-accent'
-                      : 'text-secondary'
-                  }
+                  size={26}
+                  className={feature.color === 'primary' ? 'text-primary' : 'text-secondary'}
                 />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
@@ -107,6 +114,19 @@ export const FeaturesSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex items-center gap-2 text-muted-foreground">
+            <Clock size={18} className="text-secondary" />
+            <span>Takes only 3 minutes to get started</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

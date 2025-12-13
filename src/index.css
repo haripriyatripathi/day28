@@ -6,16 +6,16 @@
 
 @layer base {
   :root {
-    /* Professional Healthcare Color Palette with Rose Pink */
+    /* Professional Healthcare Color Palette */
     --background: 210 25% 98%;
     --foreground: 220 25% 15%;
     
-    /* Rose Pink primary - Warm, trustworthy healthcare (#F05A8A) */
-    --primary: 341 83% 65%;
+    /* Rose Pink primary (#F05A8A) - HSL: 341, 85%, 65% */
+    --primary: 341 85% 65%;
     --primary-foreground: 0 0% 100%;
     
-    /* Soft teal secondary - Clinical trust */
-    --secondary: 174 50% 45%;
+    /* Teal secondary (#4CB7A5) - HSL: 167, 44%, 51% */
+    --secondary: 167 44% 51%;
     --secondary-foreground: 0 0% 100%;
     
     /* Muted professional tones */
@@ -23,7 +23,7 @@
     --muted-foreground: 220 15% 45%;
     
     /* Rose accent for warmth */
-    --accent: 341 83% 65%;
+    --accent: 341 85% 65%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 72% 51%;
@@ -37,55 +37,56 @@
     
     --border: 210 20% 90%;
     --input: 210 20% 90%;
-    --ring: 341 83% 65%;
+    --ring: 341 85% 65%;
     
     --radius: 0.75rem;
     
     /* Healthcare-specific tokens */
-    --rose-primary: 341 83% 65%;
-    --rose-light: 341 70% 92%;
-    --teal-primary: 174 50% 45%;
-    --teal-light: 174 45% 90%;
+    --rose-primary: 341 85% 65%;
+    --rose-light: 341 70% 95%;
+    --teal-primary: 167 44% 51%;
+    --teal-light: 167 35% 92%;
     --lavender: 262 45% 70%;
     --coral: 350 75% 65%;
     --mint: 158 45% 80%;
     
     /* Premium gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(341 83% 65%), hsl(341 70% 72%));
+    --gradient-primary: linear-gradient(135deg, hsl(341 85% 65%), hsl(341 70% 72%));
+    --gradient-secondary: linear-gradient(135deg, hsl(167 44% 51%), hsl(167 40% 60%));
     --gradient-hero: linear-gradient(180deg, hsl(210 25% 98%), hsl(341 30% 97%));
-    --gradient-accent: linear-gradient(135deg, hsl(341 83% 65%), hsl(350 65% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(341 85% 65%), hsl(350 65% 70%));
     --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%), hsl(341 30% 98%));
     
     /* Shadows */
     --shadow-soft: 0 4px 24px -6px hsla(341, 50%, 40%, 0.12);
-    --shadow-glow: 0 0 40px hsla(341, 83%, 65%, 0.15);
+    --shadow-glow: 0 0 40px hsla(341, 85%, 65%, 0.15);
     --shadow-card: 0 2px 16px -4px hsla(220, 25%, 15%, 0.08);
     
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 25% 15%;
-    --sidebar-primary: 341 83% 65%;
+    --sidebar-primary: 341 85% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 341 30% 97%;
     --sidebar-accent-foreground: 220 25% 15%;
     --sidebar-border: 210 20% 90%;
-    --sidebar-ring: 341 83% 65%;
+    --sidebar-ring: 341 85% 65%;
   }
 
   .dark {
     --background: 220 25% 6%;
     --foreground: 210 20% 95%;
     
-    --primary: 341 75% 62%;
+    --primary: 341 80% 62%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 174 45% 42%;
+    --secondary: 167 40% 48%;
     --secondary-foreground: 0 0% 100%;
     
     --muted: 220 20% 12%;
     --muted-foreground: 210 15% 65%;
     
-    --accent: 341 75% 62%;
+    --accent: 341 80% 62%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 62% 50%;
@@ -99,34 +100,35 @@
     
     --border: 220 20% 18%;
     --input: 220 20% 18%;
-    --ring: 341 75% 62%;
+    --ring: 341 80% 62%;
     
     /* Dark mode healthcare tokens */
-    --rose-primary: 341 75% 62%;
+    --rose-primary: 341 80% 62%;
     --rose-light: 341 40% 20%;
-    --teal-primary: 174 45% 42%;
-    --teal-light: 174 35% 20%;
+    --teal-primary: 167 40% 48%;
+    --teal-light: 167 30% 20%;
     --lavender: 262 40% 55%;
     --coral: 350 70% 60%;
     --mint: 158 35% 30%;
     
-    --gradient-primary: linear-gradient(135deg, hsl(341 75% 62%), hsl(341 65% 68%));
+    --gradient-primary: linear-gradient(135deg, hsl(341 80% 62%), hsl(341 65% 68%));
+    --gradient-secondary: linear-gradient(135deg, hsl(167 40% 48%), hsl(167 35% 55%));
     --gradient-hero: linear-gradient(180deg, hsl(220 25% 6%), hsl(220 30% 10%));
-    --gradient-accent: linear-gradient(135deg, hsl(341 75% 62%), hsl(350 60% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(341 80% 62%), hsl(350 60% 65%));
     --gradient-soft: linear-gradient(180deg, hsl(220 25% 10%), hsl(220 25% 8%));
     
     --shadow-soft: 0 4px 24px -6px hsla(0, 0%, 0%, 0.4);
-    --shadow-glow: 0 0 40px hsla(341, 75%, 62%, 0.12);
+    --shadow-glow: 0 0 40px hsla(341, 80%, 62%, 0.12);
     --shadow-card: 0 2px 16px -4px hsla(0, 0%, 0%, 0.3);
     
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 341 75% 62%;
+    --sidebar-primary: 341 80% 62%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 20% 12%;
     --sidebar-accent-foreground: 210 20% 95%;
     --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 341 75% 62%;
+    --sidebar-ring: 341 80% 62%;
   }
 }
 
