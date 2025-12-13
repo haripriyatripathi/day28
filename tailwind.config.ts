@@ -51,6 +51,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        rose: {
+          primary: "hsl(var(--rose-primary))",
+          light: "hsl(var(--rose-light))",
+        },
         teal: {
           primary: "hsl(var(--teal-primary))",
           light: "hsl(var(--teal-light))",
@@ -117,8 +121,14 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-primary": "linear-gradient(135deg, hsl(174 62% 40%), hsl(174 50% 50%))",
-        "gradient-hero": "linear-gradient(180deg, hsl(210 25% 97%), hsl(210 30% 95%))",
+        "gradient-primary": "linear-gradient(135deg, hsl(341 83% 65%), hsl(341 70% 72%))",
+        "gradient-hero": "linear-gradient(180deg, hsl(210 25% 98%), hsl(341 30% 97%))",
+        "gradient-rose": "linear-gradient(135deg, hsl(341 83% 65%), hsl(350 70% 70%))",
+      },
+      transitionDuration: {
+        '400': '400ms',
+        '500': '500ms',
+        '600': '600ms',
       },
     },
   },
