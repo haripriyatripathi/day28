@@ -1,35 +1,35 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { AlertCircle, Clock, Heart, Users, TrendingUp, MapPin } from 'lucide-react';
+import { TrendingUp, Clock, Heart, MapPin } from 'lucide-react';
 
-const problems = [
+const insights = [
   {
     icon: TrendingUp,
-    stat: '2 करोड़+',
-    title: 'Affected in India',
-    description: 'Over 20 million Indian women live with PCOS, yet most remain unaware of their condition.',
+    stat: '20+ Million',
+    title: 'Women Affected',
+    description: 'PCOS impacts a large portion of India\'s female population, many undiagnosed.',
     color: 'primary',
   },
   {
     icon: Clock,
     stat: '70%',
     title: 'Delayed Diagnosis',
-    description: 'Most women visit 3+ doctors before getting correctly diagnosed, losing precious years.',
+    description: 'Women often consult multiple doctors before receiving clarity.',
     color: 'secondary',
   },
   {
     icon: Heart,
     stat: '65%',
     title: 'Mental Health Impact',
-    description: 'Anxiety, depression, and mood disorders are common but rarely discussed or treated.',
+    description: 'Anxiety, stress, and mood disorders commonly go unaddressed.',
     color: 'primary',
   },
   {
     icon: MapPin,
     stat: '80%',
     title: 'Limited Access',
-    description: 'Women in tier-2 and tier-3 cities struggle to find qualified PCOS specialists.',
+    description: 'Tier-2 and Tier-3 cities lack reliable PCOS-focused care.',
     color: 'secondary',
   },
 ];
@@ -39,11 +39,7 @@ export const ProblemSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 relative overflow-hidden bg-muted/30" ref={ref}>
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
-
+    <section className="py-24 relative overflow-hidden bg-background" ref={ref}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -53,57 +49,58 @@ export const ProblemSection = () => {
           className="text-center mb-16"
         >
           <span className="text-secondary font-semibold text-sm tracking-wide uppercase mb-4 block">
-            भारत में PCOS की स्थिति
+            PCOS Landscape in India
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Why India Needs{' '}
-            <span className="gradient-text-rose">Better PCOS Care</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Why India Needs Accessible PCOS Care
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            From bustling metros to small towns, millions of Indian women struggle silently. 
-            It's time for accessible, affordable, and judgment-free healthcare.
+          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            Across metros, small towns, and rural regions, millions of Indian women face delayed diagnosis, 
+            limited access to specialists, and mental health challenges related to PCOS. 
+            Early, affordable, and stigma-free care is critical.
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {problems.map((problem, index) => (
+        {/* Key Insights - Text Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 max-w-4xl mx-auto">
+          {insights.map((insight, index) => (
             <motion.div
-              key={problem.title}
-              initial={{ opacity: 0, y: 40 }}
+              key={insight.title}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-              className="stat-card group"
+              className="flex items-start gap-4"
             >
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6 transition-all duration-300 group-hover:scale-110 ${
-                problem.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
+              <div className={`flex-shrink-0 p-2.5 rounded-lg ${
+                insight.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
               }`}>
-                <problem.icon size={26} className={
-                  problem.color === 'primary' ? 'text-primary' : 'text-secondary'
+                <insight.icon size={22} className={
+                  insight.color === 'primary' ? 'text-primary' : 'text-secondary'
                 } />
               </div>
-              <div className={`text-3xl md:text-4xl font-bold mb-2 ${
-                problem.color === 'primary' ? 'text-primary' : 'text-secondary'
-              }`}>{problem.stat}</div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{problem.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{problem.description}</p>
+              <div>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className={`text-xl font-bold ${
+                    insight.color === 'primary' ? 'text-primary' : 'text-secondary'
+                  }`}>{insight.stat}</span>
+                  <span className="text-foreground font-semibold">{insight.title}</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{insight.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Banner */}
+        {/* Closing Statement */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 glass-card p-8 md:p-10 text-center bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"
+          className="mt-16 text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            You're Not Alone in This Journey
-          </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            DAY28 was created by women, for women. We understand the challenges, 
-            the stigma, and the need for compassionate care that respects your privacy.
+            <span className="font-semibold text-foreground">You're not alone in this journey.</span>{' '}
+            DAY28 was created by women, for women — with compassionate care that respects your privacy.
           </p>
         </motion.div>
       </div>

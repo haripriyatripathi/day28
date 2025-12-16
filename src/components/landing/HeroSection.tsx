@@ -42,9 +42,19 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
-            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
           >
             Early screening, cycle insights, and access to verified gynecologists — all in one secure platform.
+          </motion.p>
+
+          {/* Trust Metric */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.18, ease: 'easeOut' }}
+            className="text-sm text-primary font-medium mb-10"
+          >
+            Used by 5,000+ women across India • Built with guidance from gynecologists
           </motion.p>
 
           {/* CTA Buttons */}
@@ -52,30 +62,36 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14"
+            className="flex flex-col items-center mb-14"
           >
-            <Link to="/screener">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="btn-primary group flex items-center gap-2 text-base px-6 py-3"
-              >
-                <span>Begin Free Assessment</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </motion.button>
-            </Link>
-            <Link to="/doctors">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="btn-secondary flex items-center gap-2 px-6 py-3"
-              >
-                <MapPin size={18} />
-                <span>Find Nearby Specialist</span>
-              </motion.button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-3">
+              <Link to="/screener">
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="btn-primary group flex items-center gap-2 text-base px-6 py-3"
+                >
+                  <span>Begin Free Assessment</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </motion.button>
+              </Link>
+              <Link to="/doctors">
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="btn-secondary flex items-center gap-2 px-6 py-3"
+                >
+                  <MapPin size={18} />
+                  <span>Find Nearby Specialist</span>
+                </motion.button>
+              </Link>
+            </div>
+            {/* CTA Microcopy */}
+            <p className="text-xs text-muted-foreground">
+              No credit card required • Takes under 5 minutes
+            </p>
           </motion.div>
 
           {/* Trust Section */}
