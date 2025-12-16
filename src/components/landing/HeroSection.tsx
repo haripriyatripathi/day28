@@ -64,11 +64,11 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">India's Trusted</span>
+            <span className="text-foreground">Your Health, </span>
+            <span className="text-primary">Our Priority</span>
             <br />
-            <span className="gradient-text-rose">PCOS Care & Emotional</span>
-            <br />
-            <span className="gradient-text-secondary">Wellness Platform</span>
+            <span className="text-foreground">PCOS Care Made </span>
+            <span className="text-secondary">Simple</span>
           </motion.h1>
 
           {/* Subtitle - India focused */}
