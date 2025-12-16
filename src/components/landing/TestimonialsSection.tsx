@@ -10,11 +10,11 @@ const testimonials = [
   {
     name: 'Sneha Sharma',
     age: 19,
-    location: 'Delhi University Student',
+    location: 'University Student',
     city: 'New Delhi',
     image: snehaImg,
     rating: 5,
-    quote: 'DAY28 ने मुझे PCOS को समझने में मदद की जब मैं बहुत confused थी। AI screening ने मुझे doctor से बात करने का confidence दिया।',
+    quote: 'DAY28 helped me understand PCOS when I was completely confused. The AI screening gave me the confidence to speak with a doctor and get proper care.',
   },
   {
     name: 'Riya Patel',
@@ -23,7 +23,7 @@ const testimonials = [
     city: 'Mumbai',
     image: riyaImg,
     rating: 5,
-    quote: 'The emotional wellness journal changed my stress management completely. I finally see patterns between work stress and my cycle. This app is a game changer!',
+    quote: 'The emotional wellness journal transformed my stress management completely. I finally see patterns between work stress and my cycle. This platform is a game changer!',
   },
   {
     name: 'Aisha Khan',
@@ -32,7 +32,7 @@ const testimonials = [
     city: 'Bangalore',
     image: aishaImg,
     rating: 5,
-    quote: 'Finally found clarity about PCOS after years of confusion. The personalized insights and doctor recommendations made my health journey less intimidating.',
+    quote: 'Finally found clarity about PCOS after years of confusion. The personalized insights and verified doctor recommendations made my health journey much less intimidating.',
   },
 ];
 
@@ -53,7 +53,6 @@ export const TestimonialsSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" ref={ref}>
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -69,7 +68,7 @@ export const TestimonialsSection = () => {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Trusted by{' '}
-            <span className="gradient-text-secondary">50,000+ Women</span>{' '}
+            <span className="text-secondary">50,000+ Women</span>{' '}
             Across India
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

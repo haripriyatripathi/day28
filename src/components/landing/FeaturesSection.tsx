@@ -1,48 +1,48 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Brain, Heart, Calendar, Stethoscope, Shield, Sparkles, Clock, MessageCircle } from 'lucide-react';
+import { Brain, Heart, Calendar, Stethoscope, Shield, BarChart3, Clock } from 'lucide-react';
 
 const features = [
   {
     icon: Brain,
     title: 'AI-Powered PCOS Screening',
-    description: 'Get accurate risk assessment in just 3 minutes. Our AI is trained on data from 10,000+ Indian women.',
+    description: 'Clinically validated risk assessment in just 3 minutes. Our AI is trained on data from thousands of Indian women.',
     color: 'primary',
     badge: 'Most Popular',
   },
   {
     icon: Heart,
     title: 'Emotional Wellness Tracker',
-    description: 'Daily mood journaling with AI insights. Understand how your emotions connect to your cycle.',
+    description: 'Daily mood journaling with AI insights. Understand how your emotions connect to your hormonal patterns.',
     color: 'secondary',
     badge: null,
   },
   {
     icon: Calendar,
     title: 'Smart Cycle Tracking',
-    description: 'Predict your periods accurately, even with irregular cycles. Get reminders for doctor visits.',
+    description: 'Accurate period predictions even with irregular cycles. Get timely reminders for health check-ups.',
     color: 'primary',
     badge: null,
   },
   {
     icon: Stethoscope,
     title: 'Connect with Specialists',
-    description: 'Find FOGSI-certified gynecologists and endocrinologists in your city. Book online or in-person.',
+    description: 'Access verified gynecologists and endocrinologists in your city. Book online or in-person consultations.',
     color: 'secondary',
     badge: '500+ Doctors',
   },
   {
-    icon: MessageCircle,
-    title: 'Hindi & Regional Support',
-    description: 'Use the app in Hindi or English. Our support team speaks your language.',
+    icon: BarChart3,
+    title: 'Data-Driven Insights',
+    description: 'Visual reports and trend analysis of your symptoms, mood patterns, and cycle data over time.',
     color: 'primary',
     badge: null,
   },
   {
     icon: Shield,
     title: '100% Private & Secure',
-    description: 'Your health data stays on your device. We never share or sell your information.',
+    description: 'Your health data is encrypted and protected. We never share or sell your personal information.',
     color: 'secondary',
     badge: 'Encrypted',
   },
@@ -54,7 +54,6 @@ export const FeaturesSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" ref={ref}>
-      {/* Background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
 
@@ -67,14 +66,14 @@ export const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm tracking-wide uppercase mb-4 block">
-            Complete Care Platform
+            Complete Healthcare Platform
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Everything You Need for{' '}
-            <span className="gradient-text-secondary">Better Health</span>
+            <span className="text-secondary">Better Health</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Clinically validated tools designed with empathy for Indian women's unique health needs.
+            Clinically validated tools designed with scientific precision for Indian women's unique health needs.
           </p>
         </motion.div>
 
@@ -88,7 +87,6 @@ export const FeaturesSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
               className="glass-card-hover p-8 group relative"
             >
-              {/* Badge */}
               {feature.badge && (
                 <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold ${
                   feature.color === 'primary' 
