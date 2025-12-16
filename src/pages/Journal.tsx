@@ -2,33 +2,33 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { Heart, Send, Sparkles, Calendar, BookOpen } from 'lucide-react';
+import { Heart, Send, Sparkles, Calendar, BookOpen, Shield, Lock } from 'lucide-react';
 
 const moodOptions = [
-  { emoji: '😊', label: 'Happy', value: 'happy' },
-  { emoji: '😌', label: 'Calm', value: 'calm' },
-  { emoji: '😔', label: 'Sad', value: 'sad' },
-  { emoji: '😤', label: 'Stressed', value: 'stressed' },
-  { emoji: '😰', label: 'Anxious', value: 'anxious' },
-  { emoji: '😴', label: 'Tired', value: 'tired' },
+  { emoji: 'Happy', label: 'Happy', value: 'happy', color: 'bg-secondary/20 border-secondary/50' },
+  { emoji: 'Calm', label: 'Calm', value: 'calm', color: 'bg-secondary/20 border-secondary/50' },
+  { emoji: 'Sad', label: 'Sad', value: 'sad', color: 'bg-primary/20 border-primary/50' },
+  { emoji: 'Stressed', label: 'Stressed', value: 'stressed', color: 'bg-primary/20 border-primary/50' },
+  { emoji: 'Anxious', label: 'Anxious', value: 'anxious', color: 'bg-primary/20 border-primary/50' },
+  { emoji: 'Tired', label: 'Tired', value: 'tired', color: 'bg-muted border-border' },
 ];
 
 const pastEntries = [
   {
     date: 'Dec 7, 2024',
-    mood: '😊',
+    mood: 'Happy',
     entry: 'Feeling great today! Had a productive morning and went for a walk.',
     aiInsight: 'Your positive mood aligns with your regular sleep schedule this week.',
   },
   {
     date: 'Dec 6, 2024',
-    mood: '😰',
+    mood: 'Anxious',
     entry: 'Work has been overwhelming. Feeling anxious about upcoming deadlines.',
     aiInsight: 'Consider taking short breaks. Anxiety often peaks mid-cycle.',
   },
   {
     date: 'Dec 5, 2024',
-    mood: '😌',
+    mood: 'Calm',
     entry: 'Peaceful day. Practiced meditation and felt centered.',
     aiInsight: 'Great to see you maintaining wellness routines!',
   },
@@ -43,7 +43,6 @@ const Journal = () => {
   const handleSubmit = () => {
     if (!selectedMood || !journalEntry) return;
 
-    // Simulate AI response
     setAiResponse(
       `Thank you for sharing. Based on your ${selectedMood} mood and entry, I notice you might benefit from some relaxation techniques. Your emotional patterns suggest increased stress levels compared to last week. Consider taking a 10-minute break for deep breathing exercises.`
     );
@@ -70,16 +69,26 @@ const Journal = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 mb-6">
-              <Heart size={18} className="text-accent" />
-              <span className="text-sm font-medium text-accent">Emotional Wellness</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+              <Heart size={18} className="text-primary" />
+              <span className="text-sm font-medium text-primary">Emotional Wellness</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Emotional <span className="gradient-text">Journal</span>
+              Emotional <span className="text-primary">Journal</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Track your emotions, reflect on your day, and receive AI-powered insights
+              Track your emotions, reflect on your day, and receive AI-powered health insights
             </p>
+            <div className="flex justify-center gap-4 mt-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Shield size={12} className="text-secondary" />
+                <span>Private Entries</span>
+              </div>
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Lock size={12} className="text-secondary" />
+                <span>Encrypted Data</span>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -92,8 +101,8 @@ const Journal = () => {
             >
               <div className="glass-card p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-xl bg-accent/10">
-                    <BookOpen size={24} className="text-accent" />
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <BookOpen size={24} className="text-primary" />
                   </div>
                   <div>
                     <h2 className="font-semibold text-foreground">Today's Entry</h2>
@@ -120,11 +129,11 @@ const Journal = () => {
                             onClick={() => setSelectedMood(mood.value)}
                             className={`p-4 rounded-xl border text-center transition-all ${
                               selectedMood === mood.value
-                                ? 'bg-accent/20 border-accent/50'
-                                : 'bg-card/40 border-border/50 hover:border-accent/30'
+                                ? mood.color
+                                : 'bg-card/40 border-border/50 hover:border-primary/30'
                             }`}
                           >
-                            <span className="text-2xl mb-1 block">{mood.emoji}</span>
+                            <span className="text-sm font-medium text-foreground block">{mood.emoji}</span>
                             <span className="text-xs text-muted-foreground">{mood.label}</span>
                           </motion.button>
                         ))}
@@ -141,7 +150,7 @@ const Journal = () => {
                         onChange={(e) => setJournalEntry(e.target.value)}
                         placeholder="Write about your day, thoughts, or feelings..."
                         rows={6}
-                        className="w-full px-4 py-3.5 bg-card/60 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all resize-none"
+                        className="w-full px-4 py-3.5 bg-card/60 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
                       />
                     </div>
 
@@ -166,16 +175,16 @@ const Journal = () => {
                     <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20">
                       <div className="flex items-center gap-2 mb-4">
                         <Sparkles size={20} className="text-primary" />
-                        <span className="font-semibold text-foreground">AI Insight</span>
+                        <span className="font-semibold text-foreground">AI Health Insight</span>
                       </div>
                       <p className="text-muted-foreground leading-relaxed">{aiResponse}</p>
                     </div>
 
                     {/* Summary */}
-                    <div className="flex items-center gap-4 p-4 bg-card/40 rounded-xl">
-                      <span className="text-3xl">
-                        {moodOptions.find((m) => m.value === selectedMood)?.emoji}
-                      </span>
+                    <div className="flex items-center gap-4 p-4 bg-card/40 rounded-xl border border-border/30">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Heart size={20} className="text-primary" />
+                      </div>
                       <div className="flex-1">
                         <p className="text-sm text-muted-foreground">Your mood today</p>
                         <p className="font-medium text-foreground capitalize">{selectedMood}</p>
@@ -213,7 +222,7 @@ const Journal = () => {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm text-muted-foreground">{entry.date}</span>
-                    <span className="text-xl">{entry.mood}</span>
+                    <span className="text-sm font-medium text-foreground">{entry.mood}</span>
                   </div>
                   <p className="text-sm text-foreground mb-3 line-clamp-2">{entry.entry}</p>
                   <div className="p-3 rounded-lg bg-primary/5 border border-primary/10">

@@ -7,6 +7,8 @@ import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { HowItWorksSection } from '@/components/landing/HowItWorksSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { CTASection } from '@/components/landing/CTASection';
+import { MetricsSection } from '@/components/landing/MetricsSection';
+import { AIInsightsSection } from '@/components/landing/AIInsightsSection';
 
 const Index = () => {
   return (
@@ -19,8 +21,10 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <MetricsSection />
         <ProblemSection />
         <FeaturesSection />
+        <AIInsightsSection />
         <HowItWorksSection />
         <TestimonialsSection />
         <CTASection />

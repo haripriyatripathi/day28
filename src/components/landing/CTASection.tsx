@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Clock, Heart, MapPin } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Lock, CheckCircle } from 'lucide-react';
 
 export const CTASection = () => {
   const ref = useRef(null);
@@ -10,9 +10,8 @@ export const CTASection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden bg-muted/30" ref={ref}>
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -30,19 +29,19 @@ export const CTASection = () => {
           >
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <Shield size={16} className="text-primary" />
-              <span>Free Assessment</span>
+              <span>Clinically Validated</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <Clock size={16} className="text-secondary" />
-              <span>Takes 3 Minutes</span>
+              <span>3-Minute Assessment</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <Heart size={16} className="text-primary" />
+              <Lock size={16} className="text-primary" />
               <span>100% Confidential</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <MapPin size={16} className="text-secondary" />
-              <span>Available Pan-India</span>
+              <CheckCircle size={16} className="text-secondary" />
+              <span>Data Privacy Compliant</span>
             </div>
           </motion.div>
 
@@ -53,7 +52,7 @@ export const CTASection = () => {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
           >
             Ready to Take Control of{' '}
-            <span className="gradient-text-rose">Your Health?</span>
+            <span className="text-primary">Your Health?</span>
           </motion.h2>
 
           <motion.p
@@ -79,7 +78,7 @@ export const CTASection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary group flex items-center gap-2 text-base"
               >
-                <span className="relative z-10">अभी मुफ्त जांच करें</span>
+                <span className="relative z-10">Begin Free Assessment</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
@@ -94,14 +93,13 @@ export const CTASection = () => {
             </Link>
           </motion.div>
 
-          {/* Additional info */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-8 text-sm text-muted-foreground"
           >
-            No credit card required • Works on all devices • Hindi & English support
+            No credit card required • Works on all devices • Secure and confidential
           </motion.p>
         </motion.div>
       </div>

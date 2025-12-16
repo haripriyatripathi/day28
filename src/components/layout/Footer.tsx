@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, Instagram, Twitter, Linkedin, Mail, Shield } from 'lucide-react';
+import { Heart, Instagram, Twitter, Linkedin, Mail, Shield, Lock, AlertTriangle } from 'lucide-react';
 import logo from '@/assets/day28-logo.png';
 
 const footerLinks = {
@@ -35,7 +35,7 @@ export const Footer = () => {
     <footer className="relative border-t border-border bg-muted/30">
       <div className="container mx-auto px-6 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand - Logo Only */}
+          {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
               <img
@@ -45,7 +45,7 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
-              भारत की पहली AI-powered PCOS और emotional wellness platform। 
+              India's first AI-powered PCOS and emotional wellness platform. 
               Evidence-based care, designed with empathy for Indian women.
             </p>
             
@@ -124,14 +124,39 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Medical Disclaimer */}
+        <div className="mt-12 p-4 rounded-xl bg-card/50 border border-border">
+          <div className="flex items-start gap-3">
+            <AlertTriangle size={20} className="text-amber-500 flex-shrink-0 mt-0.5" />
+            <div>
+              <h5 className="text-sm font-semibold text-foreground mb-1">Medical Disclaimer</h5>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                DAY28 provides health awareness and educational insights only. The platform is not intended to diagnose, treat, 
+                cure, or prevent any disease. Always consult a qualified healthcare professional for medical advice, diagnosis, 
+                or treatment. The information provided should not be considered a substitute for professional medical consultation.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} DAY28 Health. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart size={14} className="text-primary fill-primary" /> for women's health in India
-          </p>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Lock size={12} className="text-secondary" />
+              <span>Secure</span>
+            </div>
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Shield size={12} className="text-secondary" />
+              <span>Confidential</span>
+            </div>
+            <p className="text-sm text-muted-foreground flex items-center gap-1">
+              Made with <Heart size={14} className="text-primary fill-primary" /> in India
+            </p>
+          </div>
         </div>
       </div>
     </footer>

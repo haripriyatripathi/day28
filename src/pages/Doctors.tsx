@@ -10,7 +10,9 @@ import {
   Filter,
   Search,
   Heart,
-  Clock
+  Clock,
+  Shield,
+  CheckCircle
 } from 'lucide-react';
 
 const doctors = [
@@ -25,7 +27,8 @@ const doctors = [
     available: true,
     image: 'PS',
     nextSlot: 'Tomorrow, 10:00 AM',
-    consultationFee: '₹800',
+    consultationFee: '800',
+    verified: true,
   },
   {
     id: 2,
@@ -38,7 +41,8 @@ const doctors = [
     available: true,
     image: 'AV',
     nextSlot: 'Today, 4:00 PM',
-    consultationFee: '₹1000',
+    consultationFee: '1000',
+    verified: true,
   },
   {
     id: 3,
@@ -51,7 +55,8 @@ const doctors = [
     available: false,
     image: 'MR',
     nextSlot: 'Dec 12, 11:00 AM',
-    consultationFee: '₹1200',
+    consultationFee: '1200',
+    verified: true,
   },
   {
     id: 4,
@@ -64,7 +69,8 @@ const doctors = [
     available: true,
     image: 'KN',
     nextSlot: 'Tomorrow, 2:00 PM',
-    consultationFee: '₹700',
+    consultationFee: '700',
+    verified: true,
   },
 ];
 
@@ -99,11 +105,21 @@ const Doctors = () => {
               <span className="text-sm font-medium text-primary">Verified Specialists</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Find Your <span className="gradient-text">Doctor</span>
+              Find Your <span className="text-primary">Specialist</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Connect with empathetic PCOS and hormonal health specialists
+              Connect with verified PCOS specialists and gynecologists across India
             </p>
+            <div className="flex justify-center gap-4 mt-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Shield size={12} className="text-secondary" />
+                <span>Verified Credentials</span>
+              </div>
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <CheckCircle size={12} className="text-secondary" />
+                <span>500+ Specialists</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Search & Filter */}
@@ -156,7 +172,7 @@ const Doctors = () => {
                 <div className="flex gap-4">
                   {/* Avatar */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold text-lg">
                       {doctor.image}
                     </div>
                   </div>
@@ -165,13 +181,18 @@ const Doctors = () => {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <h3 className="font-semibold text-foreground">{doctor.name}</h3>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-semibold text-foreground">{doctor.name}</h3>
+                          {doctor.verified && (
+                            <CheckCircle size={14} className="text-secondary" />
+                          )}
+                        </div>
                         <p className="text-sm text-primary">{doctor.specialty}</p>
                       </div>
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-full bg-card/60 border border-border/30 text-muted-foreground hover:text-accent hover:border-accent/50 transition-colors"
+                        className="p-2 rounded-full bg-card/60 border border-border/30 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
                       >
                         <Heart size={16} />
                       </motion.button>
@@ -183,14 +204,14 @@ const Doctors = () => {
                         {doctor.location}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Star size={14} className="text-yellow-400 fill-yellow-400" />
+                        <Star size={14} className="text-amber-400 fill-amber-400" />
                         {doctor.rating} ({doctor.reviews})
                       </span>
                     </div>
 
                     <div className="flex items-center gap-4 mt-2 text-sm">
                       <span className="text-muted-foreground">{doctor.experience}</span>
-                      <span className="text-foreground font-medium">{doctor.consultationFee}</span>
+                      <span className="text-foreground font-medium">₹{doctor.consultationFee}</span>
                     </div>
                   </div>
                 </div>
@@ -198,7 +219,7 @@ const Doctors = () => {
                 {/* Availability */}
                 <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/30">
                   <div className="flex items-center gap-2">
-                    <Clock size={16} className={doctor.available ? 'text-green-400' : 'text-muted-foreground'} />
+                    <Clock size={16} className={doctor.available ? 'text-secondary' : 'text-muted-foreground'} />
                     <span className="text-sm text-muted-foreground">
                       {doctor.available ? 'Available: ' : 'Next: '}
                       <span className="text-foreground">{doctor.nextSlot}</span>

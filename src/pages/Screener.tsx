@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { Brain, ArrowRight, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Brain, ArrowRight, CheckCircle, AlertTriangle, RefreshCw, Shield, Lock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const questions = [
   {
@@ -17,7 +18,7 @@ const questions = [
   },
   {
     id: 2,
-    question: 'Do you experience excessive hair growth on face/body?',
+    question: 'Do you experience excessive hair growth on face or body?',
     options: [
       { value: 1, label: 'No noticeable hair growth' },
       { value: 2, label: 'Mild, barely noticeable' },
@@ -27,7 +28,7 @@ const questions = [
   },
   {
     id: 3,
-    question: 'How would you describe your skin?',
+    question: 'How would you describe your skin condition?',
     options: [
       { value: 1, label: 'Clear, rarely have breakouts' },
       { value: 2, label: 'Occasional acne' },
@@ -79,9 +80,9 @@ const Screener = () => {
   };
 
   const getRiskLevel = (score: number) => {
-    if (score < 30) return { level: 'Low', color: 'text-green-400', description: 'Your responses suggest a low likelihood of PCOS.' };
-    if (score < 60) return { level: 'Moderate', color: 'text-yellow-400', description: 'Some symptoms may warrant further evaluation.' };
-    return { level: 'High', color: 'text-accent', description: 'We recommend consulting with a healthcare provider.' };
+    if (score < 30) return { level: 'Low', color: 'text-secondary', description: 'Your responses suggest a low likelihood of PCOS. Continue monitoring your health.' };
+    if (score < 60) return { level: 'Moderate', color: 'text-amber-500', description: 'Some symptoms may warrant further evaluation. Consider consulting a specialist.' };
+    return { level: 'High', color: 'text-primary', description: 'We recommend consulting with a healthcare provider for proper evaluation.' };
   };
 
   const resetScreener = () => {
@@ -113,11 +114,21 @@ const Screener = () => {
                 <span className="text-sm font-medium text-primary">AI-Powered Screening</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                PCOS Risk <span className="gradient-text">Assessment</span>
+                PCOS Risk <span className="text-primary">Assessment</span>
               </h1>
               <p className="text-muted-foreground">
-                Answer a few questions to understand your risk level
+                Answer a few clinically-designed questions to understand your risk level
               </p>
+              <div className="flex justify-center gap-4 mt-4">
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <Shield size={12} className="text-secondary" />
+                  <span>Clinically Validated</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <Lock size={12} className="text-secondary" />
+                  <span>100% Confidential</span>
+                </div>
+              </div>
             </div>
 
             <AnimatePresence mode="wait">
@@ -144,7 +155,7 @@ const Screener = () => {
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-                        className="h-full bg-gradient-primary rounded-full"
+                        className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
                       />
                     </div>
                   </div>
@@ -196,7 +207,7 @@ const Screener = () => {
                 >
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
                     {riskScore < 30 ? (
-                      <CheckCircle size={40} className="text-green-400" />
+                      <CheckCircle size={40} className="text-secondary" />
                     ) : (
                       <AlertTriangle size={40} className={riskInfo.color} />
                     )}
@@ -248,6 +259,14 @@ const Screener = () => {
                     {riskInfo.description}
                   </p>
 
+                  {/* Disclaimer */}
+                  <div className="mb-8 p-4 rounded-xl bg-card/50 border border-border text-left">
+                    <p className="text-xs text-muted-foreground">
+                      <strong>Note:</strong> This assessment provides health awareness only and is not a medical diagnosis. 
+                      Please consult a qualified healthcare professional for proper evaluation and treatment.
+                    </p>
+                  </div>
+
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
@@ -258,14 +277,16 @@ const Screener = () => {
                       <RefreshCw size={18} />
                       Retake Screening
                     </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="btn-primary flex items-center justify-center gap-2"
-                    >
-                      <span className="relative z-10">Find Specialists</span>
-                      <ArrowRight size={18} className="relative z-10" />
-                    </motion.button>
+                    <Link to="/doctors">
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="btn-primary flex items-center justify-center gap-2"
+                      >
+                        <span className="relative z-10">Find Specialists</span>
+                        <ArrowRight size={18} className="relative z-10" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </motion.div>
               )}
