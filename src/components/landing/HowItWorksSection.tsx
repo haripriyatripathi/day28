@@ -1,37 +1,30 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ClipboardCheck, Brain, LineChart, Stethoscope, ArrowRight } from 'lucide-react';
+import { ClipboardCheck, Brain, Stethoscope, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const steps = [
   {
     icon: ClipboardCheck,
     step: '01',
-    title: 'Quick Assessment',
-    description: 'Answer clinically-designed questions about your symptoms, cycle, and lifestyle in just 3 minutes.',
+    title: 'Log Symptoms & Cycles',
+    description: 'Track your daily symptoms, mood, energy levels, and menstrual cycle data with our easy-to-use interface.',
     color: 'primary',
   },
   {
     icon: Brain,
     step: '02',
-    title: 'AI Analysis',
-    description: 'Our validated AI analyzes your responses using data patterns from thousands of Indian women.',
+    title: 'Receive AI-Assisted Insights',
+    description: 'Our AI analyzes your patterns and provides personalized insights — all reviewed by certified gynecologists.',
     color: 'secondary',
-  },
-  {
-    icon: LineChart,
-    step: '03',
-    title: 'Track & Monitor',
-    description: 'Use your personal dashboard to track symptoms, mood patterns, and cycle data over time.',
-    color: 'primary',
   },
   {
     icon: Stethoscope,
-    step: '04',
-    title: 'Expert Care',
-    description: 'Connect with verified gynecologists and specialists — online or at a clinic near you.',
-    color: 'secondary',
+    step: '03',
+    title: 'Track Progress & Consult Specialists',
+    description: 'Monitor your health trends over time and connect with verified doctors when you need expert care.',
+    color: 'primary',
   },
 ];
 
@@ -64,7 +57,7 @@ export const HowItWorksSection = () => {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}

@@ -9,6 +9,10 @@ import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { CTASection } from '@/components/landing/CTASection';
 import { MetricsSection } from '@/components/landing/MetricsSection';
 import { AIInsightsSection } from '@/components/landing/AIInsightsSection';
+import { CycleCalendarSection } from '@/components/landing/CycleCalendarSection';
+import { UserFeedbackSection } from '@/components/landing/UserFeedbackSection';
+import { TrustMetricsSection } from '@/components/landing/TrustMetricsSection';
+import { WhyWomenTrustSection } from '@/components/landing/WhyWomenTrustSection';
 
 const Index = () => {
   return (
@@ -22,10 +26,14 @@ const Index = () => {
       <main>
         <HeroSection />
         <MetricsSection />
+        <CycleCalendarSection />
         <ProblemSection />
-        <FeaturesSection />
-        <AIInsightsSection />
         <HowItWorksSection />
+        <FeaturesSection />
+        <TrustMetricsSection />
+        <WhyWomenTrustSection />
+        <AIInsightsSection />
+        <UserFeedbackSection />
         <TestimonialsSection />
         <CTASection />
       </main>
